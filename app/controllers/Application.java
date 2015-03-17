@@ -38,8 +38,14 @@ public class Application extends Controller {
    */
   public static Result postContact() {
     Form<ContactFormData> formData = Form.form(ContactFormData.class).bindFromRequest();
-    ContactFormData data = formData.get();
-    System.out.printf("Got data: %s %s %s %n", data.firstName, data.lastName, data.telephone);
-    return ok(newContact.render(formData));
+    if (formData.hasErrors()) {
+      System.out.println("Found errors");
+      return badRequest(newContact.render(formData));
+    }
+    else {
+      ContactFormData data = formData.get();
+      System.out.printf("Got data: %s %s %s %n", data.firstName, data.lastName, data.telephone);
+      return ok(newContact.render(formData));
+    }
   }
 }
