@@ -26,6 +26,18 @@ public class ContactDB {
   }
 
   /**
+   * Deletes the list of contacts.
+   * @return nothing.
+   * @param formData The form data.
+   */
+  public static Contact deleteContact(ContactFormData formData) {
+    long idVal = (formData.id == 0) ? currentId++ : formData.id;
+    Contact contact = new Contact(idVal, null, null, null, null);
+    contacts.put(idVal, contact);
+    return contact;
+  }
+
+  /**
    * Returns the contact associated with id, or throws a RuntimeException if not found.
    * @param id the id.
    * @return the contact.
@@ -45,4 +57,5 @@ public class ContactDB {
   public static List<Contact> getContacts() {
     return new ArrayList<>(contacts.values());
   }
+
 }

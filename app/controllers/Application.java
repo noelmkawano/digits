@@ -35,6 +35,17 @@ public class Application extends Controller {
   }
 
   /**
+   * Deletes the contact.
+   * @param id input thing.
+   * @return the black contact
+   */
+  public static Result deleteContact(long id) {
+    ContactFormData data = (id == 0) ? new ContactFormData() : new ContactFormData(ContactDB.getContact(id));
+    Form<ContactFormData> formData = Form.form(ContactFormData.class).fill(data);
+    return ok(newContact.render(formData));
+  }
+
+  /**
    * Returns a postContact.
    * @return the postContact.
    */
