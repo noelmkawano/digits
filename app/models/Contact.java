@@ -7,20 +7,23 @@ public class Contact {
   private String firstName;
   private String lastName;
   private String telephone;
+  private String address;
   private long id;
 
   /**
    * Creates a contact instance.
    * @param id the id.
-   * @param telephone The first name.
-   * @param firstName The last name.
-   * @param lastName The telephone.
+   * @param firstName The first name.
+   * @param lastName The last name.
+   * @param telephone The telephone.
+   * @param address The address.
    */
-  public Contact(long id, String telephone, String firstName, String lastName) {
+  public Contact(long id, String firstName, String lastName, String telephone, String address) {
     this.id = id;
-    this.telephone = telephone;
     this.firstName = firstName;
     this.lastName = lastName;
+    this.telephone = telephone;
+    this.address = address;
   }
 
   /**
@@ -45,6 +48,14 @@ public class Contact {
    */
   public String getTelephone() {
     return telephone;
+  }
+
+  /**
+   * Returns the address.
+   * @return the address.
+   */
+  public String getAddress() {
+    return address;
   }
 
   /**
