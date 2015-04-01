@@ -56,6 +56,22 @@ public class ContactFormData {
   }
 
   /**
+   * Creates test data during initialization.
+   * @param firstName The first name.
+   * @param lastName the last name.
+   * @param telephone the telephone.
+   * @param address the address.
+   * @param telephoneType the telephone type.
+   */
+  public ContactFormData(String firstName, String lastName, String telephone, String telephoneType, String address) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.telephone = telephone;
+    this.telephoneType = telephoneType;
+    this.address = address;
+  }
+
+  /**
    * Validate that all fields are non-empty and that telephone field has 12 characters.
    *
    * @return Null is no errors, list of ValidationError otherwise.
