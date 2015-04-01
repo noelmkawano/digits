@@ -1,6 +1,7 @@
 @(contactForm: Form[views.formdata.ContactFormData])
 
 @import views.html.helper._
+@import bootstrap3._
 
 @Main("newContact") {
   <title>NewContact (digits)</title>
@@ -11,61 +12,25 @@
     id="@contactForm("id").id"
     value="@contactForm("id").value">
 
-    <div class="form-group @if(contactForm("firstName").hasErrors) { has-error }">
-      <label for=" inputFirst3" class="col-sm-2 control-label">First</label>
-      <div class="col-sm-10">
-        <input type="text" class="form-control"
-        name="@contactForm("firstName").name"
-        id="@contactForm("firstName").id"
-        value="@contactForm("firstName").value"
-        placeholder="First Name">
-        <span class="help-block">@{
-          contactForm("firstName").error.map { error => error.message}
-        }</span>
-      </div>
-    </div>
+    @text(contactForm("firstName"),
+      label = "First",
+      placeholder = "First Name",
+      help = "")
 
-    <div class="form-group @if(contactForm("lastName").hasErrors) { has-error }">
-      <label for=" inputLast3" class="col-sm-2 control-label">Last</label>
-      <div class="col-sm-10">
-        <input type="text" class="form-control"
-        name="@contactForm("lastName").name"
-        id="@contactForm("lastName").id"
-        value="@contactForm("lastName").value"
-        placeholder="Last Name">
-        <span class="help-block">@{
-          contactForm("lastName").error.map { error => error.message}
-        }</span>
-      </div>
-    </div>
+    @text(contactForm("lastName"),
+      label = "Last",
+      placeholder = "Last Name",
+      help = "")
 
-    <div class="form-group @if(contactForm("telephone").hasErrors) { has-error }">
-      <label for=" inputDigits" class="col-sm-2 control-label">Digits</label>
-      <div class="col-sm-10">
-        <input type="text" class="form-control"
-        name="@contactForm("telephone").name"
-        id="@contactForm("telephone").id"
-        value="@contactForm("telephone").value"
-        placeholder="808-123-4567">
-        <span class="help-block">@{
-          contactForm("telephone").error.map { error => error.message}
-        }</span>
-      </div>
-    </div>
+    @text(contactForm("telephone"),
+      label = "Digits",
+      placeholder = "888-333-1234",
+      help = "")
 
-    <div class="form-group @if(contactForm("address").hasErrors) { has-error }">
-      <label for=" inputDigits" class="col-sm-2 control-label">Address</label>
-      <div class="col-sm-10">
-        <input type="text" class="form-control"
-        name="@contactForm("address").name"
-        id="@contactForm("address").id"
-        value="@contactForm("address").value"
-        placeholder="99-1234 Ala Moana Boulevard">
-        <span class="help-block">@{
-          contactForm("address").error.map { error => error.message}
-        }</span>
-      </div>
-    </div>
+    @text(contactForm("address"),
+      label = "Address",
+      placeholder = "99-1234 Ala Moana Boulevard",
+      help = "")
 
     <div class="form-group">
       <div class="col-sm-offset-2 col-sm-10">
