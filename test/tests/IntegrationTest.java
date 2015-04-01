@@ -51,10 +51,11 @@ public class IntegrationTest {
         String firstName = "Noel";
         String lastName = "Kawano";
         String telephone = "808-454-3969";
+        String telephoneType = "Work";
         String address = "99-1234 Ala Moana Boulevard";
-        contactPage.createContact(firstName, lastName, telephone, address);
+        contactPage.createContact(firstName, lastName, telephone, telephoneType, address);
         browser.goTo(indexPage);
-        indexPage.hasContacts(firstName, lastName, telephone, address);
+        indexPage.hasContacts(firstName, lastName, telephone, telephoneType, address);
       }
     });
   }

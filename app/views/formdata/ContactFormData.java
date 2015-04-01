@@ -30,6 +30,10 @@ public class ContactFormData {
    * The id.
    */
   public long id;
+  /**
+   * The telephone type.
+   */
+  public String telephoneType;
 
   /**
    * The public no-arg constructor required by Play.
@@ -48,6 +52,7 @@ public class ContactFormData {
     this.telephone = contact.getTelephone();
     this.address = contact.getAddress();
     this.id = contact.getId();
+    this.telephoneType = contact.getTelephoneType();
   }
 
   /**
@@ -74,6 +79,9 @@ public class ContactFormData {
     }
     if ((address != null) && (address.length() < 24)) {
       errors.add(new ValidationError("address", "Address must be at least 24 characters long."));
+    }
+    if (!TelephoneTypes.isType(telephoneType)) {
+      errors.add(new ValidationError("telephoneType", "Telephone type is invalid."));
     }
     return errors.isEmpty() ? null : errors;
   }
