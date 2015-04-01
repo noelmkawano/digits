@@ -3,6 +3,7 @@
 @import views.html.helper._
 
 @Main("newContact") {
+  <title>NewContact (digits)</title>
   <div class="container">
   @form(routes.Application.postContact(), 'class -> "form-horizontal") {
     <input type="hidden"
@@ -68,7 +69,7 @@
 
     <div class="form-group">
       <div class="col-sm-offset-2 col-sm-10">
-        <button type="submit" class="btn btn-default">Add</button>
+        <button id="submit" type="submit" class="btn btn-default">Add</button>
       </div>
     </div>
   }
