@@ -1,0 +1,8 @@
+@(contactForm: Field, Form[views.formdata.ContactFormData])
+
+<div class="form-group @if(contactForm.hasErrors) {has-error}">
+<input type="hidden"
+name="@contactForm("id").name"
+id="@contactForm("id").id"
+value="@contactForm("id").value">
+</div>
