@@ -6,34 +6,44 @@
   <div class="container">
   @form(routes.Application.postContact(), 'class -> "form-horizontal") {
     <div class="form-group">
-      <label for="inputFirst3" class="col-sm-2 control-label">First</label>
+      <label for="inputeq3" class="col-sm-2 control-label">eq</label>
       <div class="col-sm-10">
         <input type="text" class="form-control"
-          name="@contactForm("firstName").name"
-          id="@contactForm("firstName").id"
-          value="@contactForm("firstName").value"
+          name="@contactForm("eq").name"
+          id="@contactForm("eq").id"
+          value="@contactForm("eq").value"
 
-        placeholder="First Name">
+        placeholder="255">
       </div>
     </div>
     <div class="form-group">
-      <label for="inputLast3" class="col-sm-2 control-label">Last</label>
+      <label for="inputwave3" class="col-sm-2 control-label">wave</label>
       <div class="col-sm-10">
         <input type="text" class="form-control"
-        name="@contactForm("lastName").name"
-        id="@contactForm("lastName").id"
-        value="@contactForm("lastName").value"
-        placeholder="Last Name">
+        name="@contactForm("wave").name"
+        id="@contactForm("wave").id"
+        value="@contactForm("wave").value"
+        placeholder="255">
       </div>
     </div>
     <div class="form-group">
-      <label for="inputDigits" class="col-sm-2 control-label">Digits</label>
+      <label for="inputsen" class="col-sm-2 control-label">sen</label>
       <div class="col-sm-10">
         <input type="text" class="form-control"
-        name="@contactForm("telephone").name"
-        id="@contactForm("telephone").id"
-        value="@contactForm("telephone").value"
-        placeholder="808-123-4567">
+        name="@contactForm("sen").name"
+        id="@contactForm("sen").id"
+        value="@contactForm("sen").value"
+        placeholder="50">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="inputtrail" class="col-sm-2 control-label">trail</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control"
+        name="@contactForm("trail").name"
+        id="@contactForm("trail").id"
+        value="@contactForm("trail").value"
+        placeholder="255">
       </div>
     </div>
     <div class="form-group">

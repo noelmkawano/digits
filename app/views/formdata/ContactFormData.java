@@ -1,13 +1,18 @@
 package views.formdata;
+import java.io.FileWriter;
+import java.io.IOException;
 
 /**
  * The backing class for the Contact form.
  */
 public class ContactFormData {
   /** The first name. */
-  public String firstName;
+  public String eq;
   /** The last name. */
-  public String lastName;
+  public String wave;
   /** The telephone number in xxx-xxx-xxxx format. */
-  public String telephone;
+  public String sen;
+  public String trail;
+
+
 }
