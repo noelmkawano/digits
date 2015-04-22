@@ -1,35 +1,40 @@
-@(contactForm: Form[views.formdata.ContactFormData], telephoneTypeMap: Map[String, Boolean])
+@(contactForm: Form[views.formdata.ContactFormData], telephoneTypeMap: Map[String, Boolean], dietMap: Map[String, Boolean])
 
-@import views.html.helper._
-@import bootstrap3._
+@import views.html.bootstrap3._
+@import helper._
 
-@Main("newContact") {
-  <title>NewContact (digits)</title>
+@Main("NewContact") {
   <div class="container">
   @form(routes.Application.postContact(), 'class -> "form-horizontal") {
-    <input type="hidden"
-    name="@contactForm("id").name"
-    id="@contactForm("id").id"
-    value="@contactForm("id").value">
 
+
+
+      <!--<form class="form-horizontal">-->
+      <!-- Hidden ID Field -->
+    @hidden(contactForm("id"))
+
+      <!-- First Name -->
     @text(contactForm("firstName"),
       label = "First",
       placeholder = "First Name",
       help = "")
 
+      <!-- Last Name -->
     @text(contactForm("lastName"),
       label = "Last",
       placeholder = "Last Name",
       help = "")
 
+      <!-- Telephone and Telephone Type -->
     @telephone(contactForm("telephone"),
       contactForm("telephoneType"),
       isMultiple = false,
       optionMap = telephoneTypeMap)
 
-    @text(contactForm("address"),
-      label = "Address",
-      placeholder = "99-1234 Ala Moana Boulevard",
+      <!-- Checkboxes -->
+    @checkboxes(contactForm("dietTypes"),
+      label="Diet",
+      checkboxMap = dietMap,
       help = "")
 
     <div class="form-group">
@@ -37,6 +42,7 @@
         <button id="submit" type="submit" class="btn btn-default">Add</button>
       </div>
     </div>
+      <!--</form>-->
   }
   </div>
 }

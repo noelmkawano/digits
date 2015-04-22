@@ -4,15 +4,16 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Utility class to support manipulation of Telephone Type maps.
+ * Utility class for handling Telephone Types, such as Work, Home, Cell, etc.
  */
 public class TelephoneTypes {
 
-  private static String[] types = {"Home", "Work", "Mobile"};
+  private static String[] types = {"Work", "Home", "Mobile"};
 
   /**
-   * Builds a new map of telephone types, initialized to false.
-   * @return The new telephone type map.
+   * Generates a new Map of types with all type pairs set to false.
+   *
+   * @return The newly generated TypeMap.
    */
   public static Map<String, Boolean> getTypes() {
     Map<String, Boolean> typeMap = new HashMap<String, Boolean>();
@@ -23,18 +24,20 @@ public class TelephoneTypes {
   }
 
   /**
-   * Returns true if type is a valid telephone type.
-   * @param type The type is set to true.
-   * @return True if valid.
+   * Verify if a given string is in our typemap of Telephone Types.
+   *
+   * @param type The type to check.
+   * @return Boolean value of whether type is member of Telephone Types.
    */
   public static boolean isType(String type) {
     return getTypes().containsKey(type);
   }
 
   /**
-   * Builds a new type of map of telephone types, where map entry with type is set to true.
-   * @param type The type to set to true.
-   * @return The map of telephone types.
+   * Generates a new Map of Telephone Types with the provided type set to true (if present).
+   *
+   * @param type The type to get from the list.
+   * @return A type Map with the associated type set to true if present.
    */
   public static Map<String, Boolean> getTypes(String type) {
     Map<String, Boolean> typeMap = getTypes();
@@ -43,4 +46,5 @@ public class TelephoneTypes {
     }
     return typeMap;
   }
+
 }

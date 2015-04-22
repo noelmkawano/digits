@@ -3,51 +3,56 @@ package tests.pages;
 import org.fluentlenium.core.FluentPage;
 import org.openqa.selenium.WebDriver;
 
+import java.util.List;
+
 import static org.fest.assertions.Assertions.assertThat;
 
 /**
  * Provides testing support for the Index page.
- * @author Philip Johnson
  */
 public class IndexPage extends FluentPage {
+
   private String url;
-  
+
   /**
    * Create the IndexPage.
+   *
    * @param webDriver The driver.
-   * @param port The port.
+   * @param port      The port.
    */
   public IndexPage(WebDriver webDriver, int port) {
     super(webDriver);
     this.url = "http://localhost:" + port;
   }
-  
+
   @Override
   public String getUrl() {
     return this.url;
   }
-  
+
   @Override
   public void isAt() {
-    assertThat(title()).isEqualTo("Home (digits)");
+    assertThat(title()).isEqualTo("Home - digits");
   }
 
-
   /**
-   * Checks that the page has a set of contact information.
-   * @param firstName this is the first name.
-   * @param lastName this is the last name.
-   * @param telephone this is the telephone number.
-   * @param telephoneType this is the telephone type.
-   * @param address this is the address.
+   * Checks that the index page table has a given contact.
+   *
+   * @param firstName The first name.
+   * @param lastName  The last name.
+   * @param telephone The telephone number.
+   * @param telephoneType The telephone type.
+   * @param dietType The diet type string list.
    */
-  public void hasContacts(String firstName, String lastName, String telephone, String telephoneType, String address) {
+  public void hasContact(String firstName, String lastName, String telephone, String telephoneType,
+                         List<String> dietType) {
     assertThat(pageSource()).contains(firstName);
     assertThat(pageSource()).contains(lastName);
     assertThat(pageSource()).contains(telephone);
     assertThat(pageSource()).contains(telephoneType);
-    assertThat(pageSource()).contains(address);
+    for (String diet : dietType) {
+      assertThat(pageSource()).contains(diet);
+    }
   }
-  
-  
 }
+
