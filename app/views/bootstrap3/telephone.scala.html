@@ -1,6 +1,6 @@
 @(telField: Field, typeField: Field, isMultiple: Boolean, optionMap: Map[String, Boolean])
 
-<div class="form-group @if(telField.hasErrors) {has-error}">
+<div class="form-group @if(telField.hasErrors || typeField.hasErrors) {has-error}">
   <label class="col-sm-2 control-label">Telephone</label>
   <div class="col-sm-6">
     <input type="text"
@@ -8,10 +8,9 @@
     id="@telField.id"
     name="@telField.name"
     value="@telField.value.getOrElse("")"
-    placeholder="808-222-2222" />
+    placeholder="xxx-xxx-xxxx" />
     <span class="help-block">@{telField.error.map { error => error.message }}</span>
   </div>
-
   <div class="col-sm-4">
     <select
     class="form-control"
