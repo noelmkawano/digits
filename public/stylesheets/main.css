@@ -1,9 +1,10 @@
 body {
+  /*padding-top: 70px;  *//* Move body of page below navbar. */
+}
 
- }
-
-.banner {
+.header {
   background-image: url('../images/fh12_contact_01.jpg');
   background-size: cover;
-  height: 200px;
+  background-position: center;
+  height: 385px;
 }
